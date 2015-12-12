@@ -1,0 +1,111 @@
+{%extends 'neversets/base.html'%}
+{% load staticfiles %}
+
+{% block extra_head %}
+<script src="{%static 'js/profile.js'%}"></script>
+{% endblock %}
+
+{%block content%}
+
+<!--LIST OF TAB TITLES-->
+<div id="loading">
+	<div class="siteTitle">Sun Never Sets on Us</div>
+	<div class="centerForm">
+	<h1 id="loadingTitle">Checking that Chrome extension is installed...</h1>
+	</div>
+</div>
+<div id="tabsHolder">
+<div id="tabs">
+	<ul>
+		<li>
+			<a href="#tabs-1">Home</a>
+		</li>
+	    <li>
+	    	<a href="#tabs-2">Friend requests ({{count}})</a>
+	    </li>
+	    <li>
+	    	<a href="#tabs-3">Add friends</a>
+	    </li>
+	    <li>
+	    	<a href="#tabs-4">Sign out</a>
+	    </li>
+  </ul>
+<div id="tabs-1">
+	{% if friends|length == 0 %}
+		<strong><em>You have added no friends yet.</em></strong>        	        	        
+	{% else %}
+		{%for friend in friends%}
+	        {%if friend.city%}
+		        <li><strong>{{friend.first_name}} {{friend.last_name}}</strong> 
+		        is in <strong>{{friend.city}}, {{friend.country}}</strong><br>
+	        {%else%}
+		        <li><strong>{{friend.first_name}} {{friend.last_name}}</strong>
+		        is in <strong>Unknown</strong><br>
+	        {%endif%}
+		        <span class="unfriend">[unfriend] </span>
+		        <span class="hidden">{{friend.email}}</span>
+	        </li>
+      	{%endfor%}
+	{% endif %}
+</div>
+<div id="tabs-2">
+	{% if count == 0 %}
+    <strong><em>You have no new friend requests</em></strong>
+	{% else %}
+	<ul>
+  	{%for request in requests%}
+    <li class="friendRequest">
+        <span id="name">
+        	{{request.from_user.first_name}}
+        	{{request.from_user.last_name}}
+        </span>
+        (<span id="email">
+        	{{request.from_user.email}}
+        </span>)
+    </li>
+    {%endfor%}
+    </ul>
+	{% endif %}
+</div>
+<div id="tabs-3">
+	<form id="send_request" method="post" action="/send_request/">
+       {%csrf_token%}
+       <table>
+          <tr>
+              <td>{{request.request_user.label_tag}}</td>
+              <td>{{request.request_user}}</td>
+          </tr>
+       </table>
+  </form>
+  <input type="submit" value="Send request" id="sendRequest" class="primaryAction">
+</div>
+<div id="tabs-4">
+	<form action="/accounts/logout/">
+		<button type="submit" class="primaryAction">Sign Out</button>
+	</form>
+</div>
+</div>
+</div>
+<h5 id="status">
+	{% if user.city != "None" %}
+	{{user.first_name}}: Your location was updated to {{user.city}}, {{user.country}} <br>
+	{{user.updated_at}}
+	{% else %}
+	{{user.first_name}}: Updating your location... 
+	{% endif %}
+</h5>
+<form id="accept" method="post" class="hidden" action="/accept_friend/">
+  {%csrf_token%}
+  {{accept.accept_user}}
+</form> 
+
+<form id="decline" method="post" class="hidden" action="/reject_friend/">
+  {%csrf_token%}
+  {{decline.decline_user}}
+</form>
+
+<form id="unfriend" method="post" class="hidden" action="/unfriend/">
+  {%csrf_token%}
+  {{unfriend.unfriend_user}}
+</form>
+{%endblock%}

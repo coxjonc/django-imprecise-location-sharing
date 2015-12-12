@@ -1,0 +1,217 @@
+/*Copyright Jonathan Cox 2015*/
+
+html, body {
+    background: #b3ccff;
+    margin: 0px;
+    font-family: sans-serif;
+    height: 100%;
+}
+
+th {
+    padding: 0px;
+    margin: 0px;
+    font-size: 12px;
+}
+
+h1 {
+    margin-bottom: 8px;
+}
+
+#loading {
+    background: white;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top:0;
+    left: 0;
+    z-index: 9999;
+}
+
+input:focus {
+   box-shadow: 0 0 0 2px #b3ccff;
+}
+
+#loadingTitle {
+    text-align: center;
+    margin: 20px;
+}
+
+.friendRequest {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#settings_submit {
+    position: relative;
+    margin-right: 0px;
+}
+
+#status {
+    margin-top: 0px;
+    text-align: center;
+    margin-left: 20px;
+}
+
+#about {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.noDecoration {
+    text-decoration: none;
+    color: black;
+}
+
+.primaryAction { 
+    position: relative;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0);
+    height: 40px;
+    width: 160px;
+    font-weight: bold;
+    font-size: 15px;
+    left: 50%;
+    margin-left: -80px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: 2px solid black;
+}
+
+.primaryAction:hover {
+    background-color: #b3ccff;
+    border-color: transparent;
+    box-shadow: 0 0 0 2px black;
+}
+
+li {
+    margin-top: 5px;
+}
+
+
+.success_button {
+    width: 200px;
+    height: 30px;
+    padding-bottom: 3px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-weight: bold;
+}
+
+.settings_button {
+    width: 120px;
+    height: 30px;
+    padding-bottom: 3px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-weight: bold;
+}
+
+.login_button {
+    width: 100px;
+    height: 30px;
+    padding-bottom: 3px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.left_text {
+    text-align: left;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+.centerForm {
+    position: relative;
+    background:  #e5eeff;
+    text-align: left;
+    width: 500px;
+    left: 50%;
+    margin-top: 50px;
+    margin-left: -250px;
+    border: 2px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 12px;
+    border-radius: 20px;
+}
+
+.msg {
+    text-align: center;
+    width: 300px;
+    left: 50%;
+    margin-left: -150px;
+    top: 20px;
+    border: 2px solid black;
+    padding: 10px;
+    position: absolute;
+    border-radius: 10px;
+    background-color: #0099ff;
+    z-index: 9999;
+}
+
+.signup_form {
+    padding-left: 15px;
+}
+
+.middle_button {
+    margin-left:
+}
+
+.box_header {
+    text-align: center;
+}
+
+.alert {
+    color: red;
+    text-align: center;
+}
+
+.link {
+    color: black;
+}
+
+.siteTitle {
+    position: relative;
+    top: 20px;
+    font-size: 4em;
+    font-weight: bold;
+    text-align: center;
+}
+
+#tabsHolder {
+    position: relative;
+    margin-top: 50px;
+    background: rgba(255, 255, 255, .5);
+    width: 700px;
+    border-radius: 20px;
+    left: 50%;
+    margin-left: -350px;
+    padding-top: 5px;
+    border: 2px solid black;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+.unfriend {
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+}
+.history {
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+}

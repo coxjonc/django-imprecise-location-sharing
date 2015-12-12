@@ -1,0 +1,17 @@
+{% extends 'neversets/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+	<div class="centerForm">
+		<h1>Share (but don't overshare) your location</h1>
+		<p>This app lets you easily keep track of what city your friends are in. 
+		Weekly email updates keep you informed on people's location changes. Unlike other 
+		location-sharing apps, it doesn't store or publish your precise location.</p>
+        <p>It's easy to lose track of people when you move to different cities. 
+        But with this app, I think you'll find you cross paths with old 
+        friends more often than you'd expect.</p>
+        <form action="/accounts/signup/">
+		<button type="submit" class="primaryAction">Back</button>
+	</form>
+	</div>
+{% endblock %}

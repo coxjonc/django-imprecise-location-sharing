@@ -1,0 +1,32 @@
+{% load url from future %}
+{%load staticfiles%}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sun Never Sets on Us</title>
+    {% block extra_head %}
+    {% endblock %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/jquery-ui.css' %}"/>
+    <link rel="icon" type="image/ico" href="{% static 'img/japanese_sunset16.ico' %}">
+    <script src="{%static 'js/jquery.min.js'%}"></script>
+    <script src="{%static 'js/jquery-ui.js'%}"></script>
+</head>
+<body class="login_body">
+{% if messages %}
+    {% for message in messages %}
+        <div class="msg">{{message}}</div>
+    {% endfor %}
+{% endif %}
+<div class="siteTitle"><a href="/accounts/signup/" class="noDecoration">Sun Never Sets on Us</a></div>
+{% block body %}
+    {% block content %}
+    {% endblock %}
+{% endblock %}
+{% block extra_body %}
+{% endblock %}
+<div id="footer">
+    <a href="http://github.com" class="link">View source on Github</a>
+</div>
+</body>
+</html>

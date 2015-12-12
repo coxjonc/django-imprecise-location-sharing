@@ -1,0 +1,61 @@
+{% extends "account/base.html" %}
+{%load staticfiles%}
+{% load i18n %}
+
+{% block extra_head %}
+	<script src="{%static 'js/signup.js'%}"></script>
+	<link rel="stylesheet" type="text/css" href="{%static 'css/jquery-ui.css'%}">
+{% endblock %}
+
+{% block content %}
+<div class="centerForm">
+	<h1>Location-sharing for introverts </h1>
+    <a href="/about/" class="link"><strong>[Learn more]</strong></a>
+	<p>Already have an account? Then please <a href="{{ login_url }}" class="link">sign in</a>.</p>
+	<form class="signup"  id="signup_form" method="post" action="{% url 'account_signup' %}">
+    {% csrf_token %}
+    {{form.non_field_errors}}
+    <table>
+    <tr>
+        <td>{{form.email.label_tag}}</td>
+        <td>{{form.email}}</td>
+    </tr>
+    <tr>
+        <th colspan="3">{{form.email.errors.as_text}}</th>
+    </tr>
+    <tr>
+        <td>{{form.password1.label_tag}}</td>
+        <td>{{form.password1}}</td>
+    </tr>
+    <tr>
+        <th colspan="3">{{form.password1.errors.as_text}}</th>
+    </tr>
+    <tr>
+        <td>{{form.password2.label_tag}}</td>
+        <td>{{form.password2}}</td>
+    </tr>
+    <tr>
+        <th colspan="3">{{form.password2.errors.as_text}}</th>
+    </tr>
+    <tr>
+        <td>{{form.first_name.label_tag}}</td>
+        <td>{{form.first_name}}</td>
+    </tr>
+    <tr>
+        <th colspan="3">{{form.first_name.errors.as_text}}</th>
+    </tr>
+    <tr>
+        <td>{{form.last_name.label_tag}}</td>
+        <td>{{form.last_name}}</td>
+    </tr>
+    <tr>
+        <th colspan="3">{{form.last_name.errors.as_text}}</th>
+    </tr>
+    </table>
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
+ 	<button type="submit" class="primaryAction" id="signUp">Register &raquo;</button>
+	</form>
+</div>
+{% endblock %}

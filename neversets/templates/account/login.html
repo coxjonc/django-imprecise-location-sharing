@@ -1,0 +1,45 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}Sign In | Sun Never Sets on Us{% endblock %}
+
+{% block content %}
+<div class="centerForm">
+<h1>Sign In</h1>
+
+<p>If you have not created an account yet, then please
+<a href="{{ signup_url }}" class="link">sign up</a> first.</p>
+
+<form class="login" method="POST" action="{% url 'account_login' %}">
+  {% csrf_token %}
+  {{form.non_field_errors.as_text}}
+  <table>
+        <tr>
+        <table>
+        <tr>
+            <th colspan="3">{{form.login.field_errors.as_text}}</th>
+        </tr>
+            <td>{{form.login.label_tag}}</td>
+            <td>{{form.login}}</td>
+        </tr>
+        <tr>
+            <th colspan="3">{{form.password.field_errors.as_text}}</th>
+        </tr>
+        <tr>
+            <td>{{form.password.label_tag}}</td>
+            <td>{{form.password}}</td>
+        </tr>
+    		<tr>
+            <td> 
+            	<a id="forgotPW" class="link" href="{% url 'account_reset_password' %}">[Forgot Password?]</a> 
+            </td>
+        </tr>
+    </table>
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <button class="primaryAction" type="submit">Sign In</button>
+</form>
+</div>
+{% endblock %}
