@@ -78,12 +78,7 @@ DATABASES = {}
 DATABASES['default'] = dj_database_url.config()
 #Enable persistent connections
 DATABASES['default']['CONN_MAX_AGE'] = 500
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+
 #--------------------
 #INTERNATIONALIZATION
 #--------------------
