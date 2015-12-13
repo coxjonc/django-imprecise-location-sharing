@@ -10,5 +10,8 @@ urlpatterns = [
     url(r'^send_request/$', views.send_request, name='send_request'),
     url(r'^accept_friend/$', views.accept_friend, name='accept_friend'),
     url(r'^unfriend/$', views.unfriend, name='unfriend'),
-	url(r'^about/$', TemplateView.as_view(template_name="neversets/about.html"))
+	url(r'^about/$', TemplateView.as_view(template_name="neversets/about.html")),
+	url(r'^contact/$', TemplateView.as_view(template_name="neversets/contact.html")),
+	url(r'^donate/$', TemplateView.as_view(template_name="neversets/donate.html")),
+	url(r'^coming_soon/$', TemplateView.as_view(template_name="neversets/coming_soon.html"))
 ]

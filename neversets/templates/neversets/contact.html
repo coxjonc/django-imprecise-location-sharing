@@ -1,0 +1,22 @@
+{% extends 'neversets/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+	<div class="centerForm">
+		<h1>Contact</h1>
+		<p>Hi there! My name is Jonathan. I hope you're enjoying using my site.
+		It's still in beta, so there are lots of improvements in the pipeline.
+		Think profile pictures, an Android app, better configuration options, and more!</p>
+        <p>If you're having trouble with the site, or have an idea for how I can
+        make it better, please don't hesitate to contact me by email at jonathan 
+        [at] sunneversetsonus [dot] com. </p>
+        <p>And if you want a freelance Django developer
+        who'll work for dirt cheap, check out my 
+        <strong><a href="https://www.linkedin.com/in/jonathancox92" class="link">linkedin</a></strong>
+        and my <strong><a href="https://github.com/geezhawk/" class="link">github</a></strong>.</p>
+        <p>Happy travels!</p>
+        <form action="/">
+		<button type="submit" class="primaryAction">Back</button>
+	</form>
+	</div>
+{% endblock %}

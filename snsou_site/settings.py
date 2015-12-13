@@ -118,6 +118,7 @@ LOGGING = {
 #EMAIL CONFIG 
 #------------
 
+DEFAULT_FROM_EMAIL='jonathan@sunneversetson.us'
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = os.environ['EMAIL_USER']
